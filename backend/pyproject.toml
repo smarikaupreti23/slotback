@@ -2,6 +2,13 @@
 name = "slotback-api"
 version = "1.0.0"
 requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "supabase>=2.10",
+  "python-dotenv>=1.0",
+  "email-validator>=2.1",
+]
 
 [tool.vercel]
 entrypoint = "app.main:app"
