@@ -1,0 +1,399 @@
+/* SlotBack — Global CSS Variables & Reset */
+
+:root {
+  --color-teal: #1B6B6B;
+  --color-teal-dark: #145454;
+  --color-teal-light: #E8F5F5;
+  --color-teal-border: #B0D8D8;
+  --color-charcoal: #2D3436;
+  --color-muted: #636E72;
+  --color-bg: #F7F9F9;
+  --color-white: #FFFFFF;
+  --color-danger: #D63031;
+  --color-danger-light: #FDEAEA;
+  --color-success: #00B894;
+  --color-success-light: #E6F5EF;
+  --color-amber: #C47B2B;
+  --color-amber-light: #FDF3E3;
+  --color-border: #D0E4E4;
+  --color-shadow: rgba(0, 0, 0, 0.08);
+
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --border-radius: 6px;
+  --border-radius-lg: 8px;
+  --max-width: 720px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-charcoal);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Page wrapper ── */
+.page-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  width: 100%;
+}
+
+/* ── Top Nav Bar ── */
+.top-nav {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 4px var(--color-shadow);
+}
+
+.top-nav-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-teal);
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-nav-logo span {
+  font-size: 20px;
+}
+
+.top-nav-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.top-nav-avatar {
+  width: 32px;
+  height: 32px;
+  background: var(--color-teal-light);
+  color: var(--color-teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1.5px solid var(--color-teal-border);
+}
+
+/* ── Page header ── */
+.page-header {
+  margin-bottom: 28px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-bottom: 4px;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+/* ── Form rows ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 540px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ── Select input (used in pages, styles match InputField) ── */
+.select-wrapper {
+  margin-bottom: 16px;
+}
+
+.select-wrapper label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-bottom: 6px;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  font-size: 14px;
+  color: var(--color-charcoal);
+  background: var(--color-white);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23636E72' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+.select-wrapper select:focus {
+  outline: none;
+  border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(27, 107, 107, 0.12);
+}
+
+.select-wrapper select.error {
+  border-color: var(--color-danger);
+}
+
+.select-error {
+  font-size: 12px;
+  color: var(--color-danger);
+  margin-top: 5px;
+}
+
+/* ── Waitlist table ── */
+.waitlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.waitlist-table th {
+  background: var(--color-teal-light);
+  color: var(--color-teal);
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--color-teal-border);
+}
+
+.waitlist-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-charcoal);
+}
+
+.waitlist-table tr:last-child td {
+  border-bottom: none;
+}
+
+.waitlist-table tr:hover td {
+  background: #F0F8F8;
+}
+
+/* ── Status badges ── */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge--pending {
+  background: var(--color-teal-light);
+  color: var(--color-teal);
+}
+
+.status-badge--sent {
+  background: var(--color-amber-light);
+  color: var(--color-amber);
+}
+
+.status-badge--confirmed {
+  background: var(--color-success-light);
+  color: var(--color-success);
+}
+
+/* ── Success banner ── */
+.offer-banner {
+  background: var(--color-success-light);
+  border: 1px solid #A3D9C8;
+  border-radius: var(--border-radius);
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #0A5A40;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Confirmation screen ── */
+.confirmation-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 16px;
+}
+
+.confirmation-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.confirmation-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-bottom: 8px;
+}
+
+.confirmation-subtitle {
+  font-size: 15px;
+  color: var(--color-muted);
+  margin-bottom: 28px;
+  max-width: 420px;
+}
+
+.confirmation-detail {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: 20px 24px;
+  text-align: left;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 24px;
+}
+
+.confirmation-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  color: var(--color-charcoal);
+  line-height: 1.5;
+}
+
+.confirmation-detail-item:last-child {
+  border-bottom: none;
+}
+
+.confirmation-detail-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Login page ── */
+.login-wrap {
+  min-height: calc(100vh - 0px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #EBF5F5 0%, #F7F9F9 60%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-logo-mark {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.login-logo-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-teal);
+  letter-spacing: -0.5px;
+}
+
+.login-logo-tagline {
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+/* ── Additions for the full app ── */
+.top-nav-signout {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.top-nav-signout:hover {
+  color: var(--color-teal);
+  border-color: var(--color-teal-border);
+}
+
+.form-error-banner {
+  background: var(--color-danger-light);
+  border: 1px solid #F0B8B8;
+  border-radius: var(--border-radius);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #8A1F1F;
+  margin-bottom: 16px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: var(--color-teal);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+}
+
+.link-button:hover { text-decoration: underline; }
+
+.loading-note {
+  text-align: center;
+  color: var(--color-muted);
+  padding: 40px 0;
+  font-size: 14px;
+}
