@@ -56,6 +56,11 @@ alter table public.waitlist_patients  enable row level security;
 alter table public.cancellations      enable row level security;
 alter table public.offers             enable row level security;
 
+-- ── Privileges: only the backend's service_role may touch these tables ──
+grant usage on schema public to service_role;
+grant all on all tables in schema public to service_role;
+revoke all on all tables in schema public from anon, authenticated;
+
 -- ── Seed data (same as the MVP) ──────────────────────────────────
 insert into public.practitioners (name) values
   ('Dr. Sarah Mills'), ('David Chen'), ('Dr. Patel')
