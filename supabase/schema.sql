@@ -49,6 +49,9 @@ create table if not exists public.offers (
 
 create index if not exists offers_cancellation_idx on public.offers (cancellation_id);
 create index if not exists waitlist_status_idx     on public.waitlist_patients (status, added_at);
+create index if not exists cancellations_practitioner_idx on public.cancellations (practitioner_id);
+create index if not exists offers_patient_idx on public.offers (patient_id);
+create index if not exists cancellations_filled_by_idx on public.cancellations (filled_by);
 
 -- ── Row Level Security: locked down, backend uses the service-role key ──
 alter table public.practitioners      enable row level security;
